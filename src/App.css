@@ -1,0 +1,35 @@
+#App {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+#target {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+  padding: 12px;
+  cursor: grab;
+}
+
+#target2 {
+  position: absolute;
+}
+
+@keyframes example {
+  from {
+    top: -12px;
+  }
+  to {
+    top: 100vh;
+  }
+}
+
+.move {
+  /* The element to apply the animation to */
+  top: -12px;
+  animation-name: example;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+}
