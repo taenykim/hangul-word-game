@@ -1,6 +1,6 @@
 import { types, consonants, vowels } from "./generator";
 const Hangul = require("hangul-js");
-console.log(Hangul.assemble(["ㅏ", "ㅣ"]));
+console.log(Hangul.assemble("아", "ㅂ"));
 
 export default function hangulgen([type1, type2]) {
   if (vowels.indexOf(type1) >= 0 && vowels.indexOf(type2) >= 0) {
@@ -15,6 +15,12 @@ export default function hangulgen([type1, type2]) {
     }
     if ((type1 == "ㅕ" && type2 == "ㅣ") || (type1 == "ㅣ" && type2 == "ㅕ")) {
       return ["ㅖ", false];
+    }
+    if (Hangul.assemble([...type1, ...type2]).length === 1) {
+      return [Hangul.assemble([...type1, ...type2]), false];
+    }
+    if (Hangul.assemble([...type2, ...type1]).length === 1) {
+      return [Hangul.assemble([...type2, ...type1]), false];
     }
   }
   if (consonants.indexOf(type1) >= 0 && consonants.indexOf(type2) >= 0) {
@@ -33,6 +39,12 @@ export default function hangulgen([type1, type2]) {
     if (type1 == "ㅈ" && type2 == "ㅈ") {
       return ["ㅉ", false];
     }
+    if (Hangul.assemble([...type1, ...type2]).length === 1) {
+      return [Hangul.assemble([...type1, ...type2]), false];
+    }
+    if (Hangul.assemble([...type2, ...type1]).length === 1) {
+      return [Hangul.assemble([...type2, ...type1]), false];
+    }
   }
   if (types.indexOf(type1) == -1) {
     type1 = Hangul.disassemble(type1);
@@ -40,11 +52,10 @@ export default function hangulgen([type1, type2]) {
   if (types.indexOf(type2) == -1) {
     type2 = Hangul.disassemble(type2);
   }
-  console.log([type1, type2]);
-  if (Hangul.assemble([...type1, ...type2]).length === 1) {
+  if (Hangul.assemble([...type1, ...type2]).length === 1 && Hangul.assemble([...type1, ...type2]) !== type1 && Hangul.assemble([...type1, ...type2]) !== type2) {
     return [Hangul.assemble([...type1, ...type2]), true];
   }
-  if (Hangul.assemble([...type2, ...type1]).length === 1) {
+  if (Hangul.assemble([...type2, ...type1]).length === 1 && Hangul.assemble([...type2, ...type1]) !== type1 && Hangul.assemble([...type2, ...type1]) !== type2) {
     return [Hangul.assemble([...type2, ...type1]), true];
   }
   return [false, false];
