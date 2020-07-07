@@ -6,6 +6,10 @@
 - 30초간 지속되는 자음모음들은 드래그앤드랍이 가능함 (duration은 위치에 맞게 다시 계산)
 - keypress 이벤트로 원하는 자음모음 생성가능
 
+## test demo
+
+https://hangul-word-game.vercel.app/
+
 ## todo
 
 - 리팩토링
