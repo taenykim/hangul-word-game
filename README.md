@@ -18,3 +18,4 @@ https://hangul-word-game.vercel.app/
 - 애니메이션 시, `top`을 `transform`으로 변경 (성능 더 좋아짐)
 - 네이버 사전
 - 완전탐색 알고리즘 (재귀로 할듯?!)
+- 자음모음 합치기 전에 합칠 수 있는지 여부에 따라 `background-color` 속성 변경
