@@ -3,8 +3,6 @@ import "./App.css";
 import generator from "./utils/generator";
 
 function App() {
-  const words = useSelector((state) => state.words.words);
-
   console.log(words);
   useEffect(() => {
     generator();
